@@ -1,0 +1,6 @@
+ignoredBuiltDependencies:
+  - esbuild
+  - spawn-sync
+
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'

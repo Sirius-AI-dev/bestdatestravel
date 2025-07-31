@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Dates Travel</title>
+    <style>
+        /* Import Google Fonts for a nicer typographic appearance */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap');
+
+        /* CSS Variables for easy color and styling adjustments */
+        :root {
+            --primary-text-color: #1a1a1a; /* Darker text for better clarity */
+            --secondary-text-color: #333; /* Slightly lighter for secondary info */
+            --button-bg-color: #e60023; /* A vibrant red, similar to the heart in the logo */
+            --button-hover-bg-color: #cc001f;
+            --border-color: #ccc;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0; /* Remove body padding as container will handle it */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0; /* Base background if image fails or for subtle gradient */
+            color: var(--primary-text-color);
+            line-height: 1.6;
+            text-align: center;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            position: relative; /* Needed for z-index context of fixed children */
+        }
+
+        /* Dedicated background image layer */
+        .background-image-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('bg/best_dates_travel_bg.png');
+            background-repeat: no-repeat;
+            background-position: center top; /* Center horizontally, illustration at top */
+            background-size: cover; /* Cover the entire viewport */
+            filter: grayscale(100%) brightness(1.2); /* Grayscale, slightly brighter for clarity */
+            opacity: 0.60; /* Made more visible */
+            z-index: -1; /* Ensure it's behind everything */
+        }
+        
+        /* Semi-transparent white overlay for text readability */
+        .overlay {
+            position: fixed; /* Fixed to cover the whole viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9); /* More opaque white overlay for text clarity */
+            z-index: 0; /* Place it behind the .container */
+        }
+
+        .container {
+            background-color: #ffffff; /* Solid white background for the content box */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            max-width: 800px;
+            width: 90%;
+            margin: auto; /* Center the container horizontally */
+            box-sizing: border-box; /* Include padding in the element's total width and height */
+            position: relative; /* Ensure it sits above the overlay */
+            z-index: 1; /* Highest z-index to be on top */
+            animation: fadeIn 1s ease-out; /* Add a subtle fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: var(--primary-text-color); /* Use primary text color */
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Subtle text shadow for more pop */
+        }
+
+        h2, h3 {
+            font-size: 1.2em;
+            color: var(--secondary-text-color); /* Use secondary text color */
+            margin-bottom: 15px;
+        }
+
+        h2 b {
+            color: var(--button-bg-color); /* Highlight bot name with the accent color */
+            font-weight: 700; /* Make bold even bolder */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .container {
+                padding: 30px;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image-layer"></div>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Find the best dates for a trip to any destination</h1>
+
+        <h2 class="important-note">Don't close this browser tab to make background price tracking on travel aggregators</h2>
+    </div>
+</body>
+</html>

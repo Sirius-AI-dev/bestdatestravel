@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Dates Travel</title>
+    <style>
+        /* Import Google Fonts for a nicer typographic appearance */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap');
+
+        /* CSS Variables for easy color and styling adjustments */
+        :root {
+            --primary-text-color: #1a1a1a; /* Darker text for better clarity */
+            --secondary-text-color: #333; /* Slightly lighter for secondary info */
+            --button-bg-color: #e60023; /* A vibrant red, similar to the heart in the logo (original general button color) */
+            --button-hover-bg-color: #cc001f;
+            --border-color: #ccc;
+
+            /* NEW: Brand colors for Telegram and WhatsApp */
+            --telegram-blue: #0088CC; /* A common vibrant Telegram blue */
+            --telegram-blue-hover: #0077B3; /* Slightly darker for hover */
+            --whatsapp-green: #25D366; /* WhatsApp's iconic bright green */
+            --whatsapp-green-hover: #1DAF54; /* Slightly darker for hover */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            color: var(--primary-text-color);
+            line-height: 1.6;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Dedicated background image layer */
+        .background-image-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('bg/best_dates_travel_bg.png'); 
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
+            filter: grayscale(100%) brightness(1.2);
+            opacity: 0.60;
+            z-index: -1;
+        }
+        
+        /* Semi-transparent white overlay for text readability */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 90%;
+            margin: auto;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: var(--primary-text-color);
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        h2, h3 {
+            font-size: 1.2em;
+            color: var(--secondary-text-color);
+            margin-bottom: 15px;
+        }
+
+        h2 b {
+            color: var(--button-bg-color);
+            font-weight: 700;
+        }
+
+        /* NEW: Wrapper for the bot buttons */
+        .bot-buttons-wrapper {
+            display: flex; /* Use flexbox for horizontal alignment */
+            justify-content: center; /* Center buttons horizontally */
+            gap: 40px; /* NEW: 40px margin/gap between buttons */
+            margin: 20px 0; /* Apply margin for the entire group of buttons */
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+        }
+
+        .button-link {
+            display: inline-block;
+            background-color: var(--button-bg-color); /* This will be overridden for specific buttons */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            /* margin: 20px 0; REMOVED as margin is now handled by .bot-buttons-wrapper gap */
+        }
+
+        .button-link:hover {
+            background-color: var(--button-hover-bg-color); /* This will be overridden for specific buttons */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* NEW: Specific styles for Telegram button */
+        #telegramBotLink {
+            background-color: var(--telegram-blue);
+        }
+        #telegramBotLink:hover {
+            background-color: var(--telegram-blue-hover);
+        }
+
+        /* NEW: Specific styles for WhatsApp button */
+        #whatsappBotLink {
+            background-color: var(--whatsapp-green);
+        }
+        #whatsappBotLink:hover {
+            background-color: var(--whatsapp-green-hover);
+        }
+
+        .copy-section {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copy-section span {
+            font-size: 0.95em;
+            color: var(--secondary-text-color);
+            margin-bottom: 5px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 5px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #hashParameterInput {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-right: none;
+            border-radius: 8px 0 0 8px;
+            font-size: 1em;
+            background-color: #fefefe;
+            color: var(--primary-text-color);
+            cursor: text;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        #hashParameterInput:focus {
+            border-color: var(--button-bg-color);
+            box-shadow: 0 0 0 2px rgba(var(--button-bg-color), 0.2);
+        }
+
+        #copyButton {
+            background-color: var(--button-bg-color);
+            color: white;
+            border: 1px solid var(--button-bg-color);
+            padding: 10px 15px;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        #copyButton:hover {
+            background-color: var(--button-hover-bg-color);
+            border-color: var(--button-hover-bg-color);
+            transform: translateY(-1px);
+        }
+
+        /* Styling for the SVG copy icon */
+        #copyButton .icon {
+            width: 1.2em;
+            height: 1.2em;
+            fill: currentColor;
+        }
+
+        .feedback-message {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: green;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            min-height: 1.2em;
+        }
+
+        .feedback-message.show {
+            opacity: 1;
+        }
+
+        .important-note {
+            margin-top: 40px;
+            font-size: 1.1em;
+            color: var(--secondary-text-color);
+            font-weight: 600;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .container {
+                padding: 30px;
+            }
+            /* NEW: Adjust button wrapper for smaller screens */
+            .bot-buttons-wrapper {
+                flex-direction: column; /* Stack buttons vertically */
+                gap: 20px; /* Smaller gap when stacked */
+            }
+            .button-link {
+                padding: 10px 20px;
+                font-size: 1em;
+                width: 100%; /* Make buttons full width when stacked */
+                max-width: 300px; /* Optional: limit max width even when stacked */
+            }
+            .input-group {
+                flex-wrap: wrap;
+                border-radius: 8px;
+                box-shadow: none;
+            }
+            #hashParameterInput, #copyButton {
+                border-radius: 8px;
+                margin-top: 5px;
+                border-right: 1px solid var(--border-color);
+            }
+            #hashParameterInput {
+                flex-basis: 100%;
+                border-color: var(--border-color);
+            }
+            #copyButton {
+                width: 100%;
+                border-color: var(--button-bg-color);
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            .container {
+                padding: 20px;
+            }
+            .copy-section {
+                gap: 5px;
+            }
+            .input-group {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image-layer"></div>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Find the best dates for a trip to any destination</h1>
+
+        <h2>Open Telegram <b>@bestdatestravel_bot</b> or Whatsapp <b>Best Dates Travel</b> bot to manage your trips and to run own travel business</h2>
+
+        <div class="bot-buttons-wrapper"> <!-- NEW: Wrapper for the buttons -->
+            <a href="#" id="telegramBotLink" class="button-link" target="_blank">Run Telegram bot</a>
+            <a href="#" id="whatsappBotLink" class="button-link" target="_blank">Run Whatsapp bot</a>
+        </div> <!-- END NEW: Wrapper for the buttons -->
+
+        <div class="copy-section">
+            <span>In case of trouble, you can run the bot manually and copy the following extension ID there:</span>
+            <div class="input-group">
+                <input type="text" id="hashParameterInput" value="" readonly>
+                <button id="copyButton" aria-label="Copy to clipboard">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M16 1H4C2.9 1 2 1.9 2 3v14h2V3h12V1zm3 4H8C6.9 4 6 4.9 6 6v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V6c0-1.1-.9-1.9-2-2zm0 16H8V6h11v14z"/>
+                    </svg>
+                </button>
+            </div>
+            <span class="feedback-message" id="copyFeedback"></span>
+        </div>
+
+        <h2 class="important-note">Don't close this browser tab to make background price tracking on travel aggregators</h2>
+    </div>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

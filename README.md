@@ -1,2 +1,31 @@
-# bestdatestravel
-Intelligent assistant that finds the most affordable dates for your trip. You choose your preferred flights, hotels, and cars, and we analyze thousands of date combinations to find the one that saves you 30% to 50% of your budget. Sometimes, just shifting your trip by a few days can save you hundreds of euros on the exact same vacation.
+# BestDatesTravel extension for Chrome
+
+Allows you to find the best dates for a travel to any destination in the world.
+
+## Install the dependencies
+
+```bash
+yarn
+# or
+npm install
+# or
+pnpm install
+```
+
+### Build the project
+
+```bash
+yarn build
+# or
+npm run build
+# or
+pnpm build
+```
+
+### Activate in chrome
+
+- Go to **chrome://extensions**
+- Turn on 'developer mode' in the top right corner
+- Press 'load unpacked' in top left corner
+- Navigate to **best_dates_extension** folder that you've just built
+- Enjoy!
