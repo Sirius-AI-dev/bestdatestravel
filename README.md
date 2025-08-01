@@ -4,6 +4,8 @@ Best Dates Travel is an intelligent assistant that finds the most affordable dat
 
 You can both **save and earn** using this extension!
 
+ ![How to find the best dates for any trip](https://media.licdn.com/dms/image/v2/D4E2DAQGKD2r3ZHUOZQ/profile-treasury-image-shrink_800_800/B4EZhlH8s9GwAg-/0/1754043240061?e=1754650800&v=beta&t=ZyKu0HlqXpXqnAc2YhXT6AEvRFV3IFGx5l6wsVp4sXo)
+
 ## How it works
 
 - Download "chrome-build" folder on your computer
@@ -14,7 +16,13 @@ You can both **save and earn** using this extension!
 - In the popup window, select the Telegram or Whatsapp bot to manage your trips and to receive notifications
 - Setup your monetization preferences
 
-*Share your personal links* to Telegram and Whatsapp bots in video channels and social netwroks, and **start earning money**.
+*Share your personal links* to Telegram and Whatsapp bots in video channels and social networks, and **start earning money**.
+
+![Chrome extension on startup](https://media.licdn.com/dms/image/v2/D4E2DAQHMVC_o75QBow/profile-treasury-image-shrink_800_800/B4EZhlHZ.TGcAY-/0/1754043097520?e=1754650800&v=beta&t=j9ix6c_Q4eciYN8bh90Cgi7gEr829HuD8cCK_f1maKw)
+
+![How to start earning money](https://media.licdn.com/dms/image/v2/D4E2DAQFo-kmkYlCPbA/profile-treasury-image-shrink_800_800/B4EZhlJYxhGUAY-/0/1754043617052?e=1754650800&v=beta&t=raehj5vQfKiOLxSm4094vcXhCFXrsO0HztaVCrT2SZ8)
+
+Details at [Best Dates Travel Wiki](https://github.com/Sirius-AI-dev/bestdatestravel/wiki)
 
 ## Customize the Chrome extension
 
